@@ -41,11 +41,14 @@ const config: HardhatUserConfig = {
     ],
   },
   defaultNetwork: "localhost",
+  gasReporter: {
+    enabled: true,
+  },
   namedAccounts: {
     deployer: {
       // By default, it will take the first Hardhat account as the deployer
       default: 0,
-    },
+    }
   },
   networks: {
     // View the networks that are pre-configured.

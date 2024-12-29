@@ -15,6 +15,7 @@
     "chain": "yarn hardhat:chain",
     "compile": "yarn hardhat:compile",
     "deploy": "yarn hardhat:deploy",
+    "deploy_reset": "yarn hardhat:deploy --reset",
     "fork": "yarn hardhat:fork",
     "format": "yarn next:format && yarn hardhat:format",
     "generate": "yarn account:generate",
