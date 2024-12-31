@@ -19,7 +19,7 @@ contract Faucet {
     function getFaucet() external {
         require(!getRecordsMapping[msg.sender],"You have already received the tokens");
         IERC20 erc20 = IERC20(myErc20Contract);
-        require(erc20.balanceOf(address(this)) > amount,"You have already received the tokens");
+        require(erc20.balanceOf(address(this)) > amount,"no balance");
         erc20.transfer(msg.sender,amount);
         getRecordsMapping[msg.sender]  = true;
         emit TokenTransferred(msg.sender,amount,block.timestamp);
