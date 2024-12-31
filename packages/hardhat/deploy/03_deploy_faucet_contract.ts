@@ -22,10 +22,10 @@ const deployPair: DeployFunction = async function (hre: HardhatRuntimeEnvironmen
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  await deploy("MyERC20", {
+  await deploy("Faucet", {
     from: deployer,
     // Contract constructor arguments
-    args: ["MyERC20Token", "TK"],
+    args: [deployer],
     log: true,
     // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
     // automatically mining the contract deployment transaction. There is no effect on live networks.
@@ -33,11 +33,11 @@ const deployPair: DeployFunction = async function (hre: HardhatRuntimeEnvironmen
   });
 
   // Get the deployed contract to interact with it after deploying.
-  await hre.ethers.getContract<Contract>("MyERC20", deployer);
+  await hre.ethers.getContract<Contract>("Faucet", deployer);
 };
 
 export default deployPair;
 
 // Tags are useful if you have multiple deploy files and only want to run one of them.
 // e.g. yarn deploy --tags Pair
-deployPair.tags = ["MyERC20", "All"];
+deployPair.tags = ["Faucet", "All"];

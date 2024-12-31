@@ -3,7 +3,7 @@ pragma solidity ^0.8.10;
 
 import "./IERC20.sol";
 
-contract ERC20 is IERC20 {
+contract MyERC20 is IERC20 {
 
     /*我们需要状态变量来记录账户余额，授权额度和代币信息。其中balanceOf, allowance和totalSupply为public类型，
     会自动生成一个同名getter函数，实现IERC20规定的balanceOf()
@@ -53,14 +53,14 @@ contract ERC20 is IERC20 {
     }
 
     //铸造代币函数，不在IERC20标准中
-    function mint(uint amount) onlyOwner external {
+    function mint(uint amount)  external {
         balanceOf[msg.sender] += amount;
         totalSupply += amount;
         emit Transfer(address(0), msg.sender, amount);
     }
 
     //销毁代币函数，不在IERC20标准中
-    function burn(uint amount) onlyOwner external {
+    function burn(uint amount)  external {
         balanceOf[msg.sender] -= amount;
         totalSupply -= amount;
         emit Transfer(msg.sender, address(0), amount);
